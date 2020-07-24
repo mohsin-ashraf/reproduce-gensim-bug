@@ -2,8 +2,10 @@ import pickle
 from random_words import RandomWords
 rw = RandomWords()
 corpus_file = open("corpus_file.txt","w")
-lengths_of_documents = pickle.load(open("list_of_lengths.pickle","rb"))
-#lengths_of_documents = lengths_of_documents[:10000]
+lengths_of_documents = open("lengths_of_documents.txt",'r').read()
+lengths_of_documents = lengths_of_documents.split()
+lengths_of_documents = [int(x) for x in lengths_of_documents if x!= '']
+#lengths_of_documents = lengths_of_documents[:100]
 
 for length in lengths_of_documents:
     words = rw.random_words(count=100)
